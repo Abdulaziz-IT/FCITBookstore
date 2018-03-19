@@ -55,3 +55,7 @@ button {
   padding: 0.1em;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.title {
+  font-weight: bold;
+}
