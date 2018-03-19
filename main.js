@@ -9,6 +9,61 @@ function Book(title, stars, image, review, pr, link, date) {
     this.dat = date;
 
     //Creating the list
+    createList(this.tit, this.star, this.imageLink, this.reviews, this.pric, this.lin, this.dat);
+}
+
+var books = new Array();
+books[0] = new Book("Web Design with HTML, CSS, JavaScript and jQuery Set", 4.7, "https://images-na.ssl-images-amazon.com/images/I/41T53nRtyoL._SX435_BO1,204,203,200_.jpg", 433, 28.38, "https://www.amazon.com/Web-Design-HTML-JavaScript-jQuery/dp/1118907442/", "July 8, 2014");
+books[1] = new Book("A Smarter Way to Learn JavaScript. The new tech-assisted approach that requires half the effort", 4.7, "https://images-na.ssl-images-amazon.com/images/I/512KPmZIG7L._SX348_BO1,204,203,200_.jpg", 1497, 15.78, "https://www.amazon.com/Smarter-JavaScript-tech-assisted-approach-requires/dp/1497408180/", "March 20, 2014");
+books[2] = new Book("Calculus: Early Transcendentals", 3.9, "https://images-na.ssl-images-amazon.com/images/I/51jitgi3EaL._SX423_BO1,204,203,200_.jpg", 101, 178.46, "https://www.amazon.com/Calculus-Early-Transcendentals-James-Stewart/dp/1285741552", "February 4, 2015");
+books[3] = new Book("A Wrinkle in Time Movie Tie-In Edition (A Wrinkle in Time Quintet)", 4.0, "https://images-na.ssl-images-amazon.com/images/I/51dy4WOGbJL._SX338_BO1,204,203,200_.jpg", 2920, 8.99, "https://www.amazon.com/Wrinkle-Time-Movie-Tie-Quintet/dp/1250153271/", "November 7, 2017");
+books[4] = new Book("Harry Potter And The Chamber Of Secrets", 4.7, "https://images-na.ssl-images-amazon.com/images/I/51jNORv6nQL._SX340_BO1,204,203,200_.jpg", 60226, 7.39, "https://www.amazon.com/Harry-Potter-Chamber-Secrets-Rowling/dp/0439064872/", "August 15, 2000");
+books[5] = new Book("A Game of Thrones (A Song of Ice and Fire, Book 1)", 4.7, "https://images-na.ssl-images-amazon.com/images/I/51fjW-2wOTL._SX328_BO1,204,203,200_.jpg", 20205, 11.29, "https://www.amazon.com/Game-Thrones-Song-Fire-Book/dp/0553386794/", "March 22, 2011");
+books[6] = new Book("Elementary Statistics: A Step By Step Approach", 4.0, "https://images-na.ssl-images-amazon.com/images/I/51bS-0oEmSL._SX388_BO1,204,203,200_.jpg", 359, 122.56, "https://www.amazon.com/Elementary-Statistics-Step-Approach/dp/1259755339/", "February 1, 2017");
+books[7] = new Book("Technical Communication Fundamentals", 3.8, "https://images-na.ssl-images-amazon.com/images/I/51Dd6K-yL8L._SX395_BO1,204,203,200_.jpg", 18, 100.00, "https://www.amazon.com/Technical-Communication-Fundamentals-William-Pfeiffer/dp/0132374579", "March 7, 2011");
+books[8] = new Book("Introduction to Java Programming and Data Structures, Comprehensive Version (11th Edition)", 4.3, "https://images-na.ssl-images-amazon.com/images/I/51rFsKGbyML._SX395_BO1,204,203,200_.jpg", 13, 147.12, "https://www.amazon.com/Introduction-Programming-Structures-Comprehensive-Version/dp/0134670949/", "March 11, 2017");
+var sorts = document.getElementById("sort");
+sorts.onchange = function () {
+    if (this.value == "price") {
+        books.sort(comparePrice);
+    } else if (this.value == "review") {
+        books.sort(compareReviews);
+    } else { //Sorting according to date
+        books.sort(compareDates)
+    }
+    updateDOM();
+}
+
+function comparePrice(a, b) {
+    return a.pric - b.pric;
+}
+
+function compareReviews(a, b) {
+    return b.reviews - a.reviews;
+}
+
+function compareDates(a, b) {
+    var d1 = new Date(a.dat);
+    var d2 = new Date(b.dat);
+    if (d1 < d2) {
+        return 1;
+    } else if (d2 > d1) {
+        return -1;
+    } else {
+        return 0;
+    }
+}
+
+function updateDOM() {
+    var allBooks = document.getElementById("listOfBooks");
+    allBooks.innerHTML = ""; //Cheating :D
+    var i;
+    for (i = 0; i < books.length; i++) {
+        createList(books[i].tit, books[i].star, books[i].imageLink, books[i].reviews, books[i].pric, books[i].lin, books[i].dat);
+    }
+}
+
+function createList(title, stars, image, review, pr, link, date) {
     var allBooks = document.getElementById("listOfBooks");
     var liElem = document.createElement("li");
     allBooks.appendChild(liElem);
@@ -52,48 +107,4 @@ function Book(title, stars, image, review, pr, link, date) {
     buttonElem.onclick = function () { alert('The book has been added to the cart.'); };
     buttonElem.appendChild(document.createTextNode("Add to cart"));
     liElem.appendChild(buttonElem);
-}
-
-var books = new Array();
-books[0] = new Book("Web Design with HTML, CSS, JavaScript and jQuery Set", 4.7, "https://images-na.ssl-images-amazon.com/images/I/41T53nRtyoL._SX435_BO1,204,203,200_.jpg", 433, 28.38, "https://www.amazon.com/Web-Design-HTML-JavaScript-jQuery/dp/1118907442/", "July 8, 2014");
-books[1] = new Book("A Smarter Way to Learn JavaScript. The new tech-assisted approach that requires half the effort", 4.7, "https://images-na.ssl-images-amazon.com/images/I/512KPmZIG7L._SX348_BO1,204,203,200_.jpg", 1497, 15.78, "https://www.amazon.com/Smarter-JavaScript-tech-assisted-approach-requires/dp/1497408180/", "March 20, 2014");
-books[2] = new Book("Calculus: Early Transcendentals", 3.9, "https://images-na.ssl-images-amazon.com/images/I/51jitgi3EaL._SX423_BO1,204,203,200_.jpg", 101, 178.46, "https://www.amazon.com/Calculus-Early-Transcendentals-James-Stewart/dp/1285741552", "February 4, 2015");
-books[3] = new Book("A Wrinkle in Time Movie Tie-In Edition (A Wrinkle in Time Quintet)", 4.0, "https://images-na.ssl-images-amazon.com/images/I/51dy4WOGbJL._SX338_BO1,204,203,200_.jpg", 2920, 8.99, "https://www.amazon.com/Wrinkle-Time-Movie-Tie-Quintet/dp/1250153271/", "November 7, 2017");
-books[4] = new Book("Harry Potter And The Chamber Of Secrets", 4.7, "https://images-na.ssl-images-amazon.com/images/I/51jNORv6nQL._SX340_BO1,204,203,200_.jpg", 60226, 7.39, "https://www.amazon.com/Harry-Potter-Chamber-Secrets-Rowling/dp/0439064872/", "August 15, 2000");
-books[5] = new Book("A Game of Thrones (A Song of Ice and Fire, Book 1)", 4.7, "https://images-na.ssl-images-amazon.com/images/I/51fjW-2wOTL._SX328_BO1,204,203,200_.jpg", 20205, 11.29, "https://www.amazon.com/Game-Thrones-Song-Fire-Book/dp/0553386794/", "March 22, 2011");
-books[6] = new Book("Elementary Statistics: A Step By Step Approach", 4.0, "https://images-na.ssl-images-amazon.com/images/I/51bS-0oEmSL._SX388_BO1,204,203,200_.jpg", 359, 122.56, "https://www.amazon.com/Elementary-Statistics-Step-Approach/dp/1259755339/", "February 1, 2017");
-books[7] = new Book("Technical Communication Fundamentals", 3.8, "https://images-na.ssl-images-amazon.com/images/I/51Dd6K-yL8L._SX395_BO1,204,203,200_.jpg", 18, 100.00, "https://www.amazon.com/Technical-Communication-Fundamentals-William-Pfeiffer/dp/0132374579", "March 7, 2011");
-books[8] = new Book("Introduction to Java Programming and Data Structures, Comprehensive Version (11th Edition)", 4.3, "https://images-na.ssl-images-amazon.com/images/I/51rFsKGbyML._SX395_BO1,204,203,200_.jpg", 13, 147.12, "https://www.amazon.com/Introduction-Programming-Structures-Comprehensive-Version/dp/0134670949/", "March 11, 2017");
-var sorts = document.getElementById("sort");
-sorts.onchange = function () {
-    if (this.value == "price") {
-        books.sort(comparePrice);
-        console.log(books[2].tit);
-    } else if (this.value == "review") {
-        books.sort(compareReviews);
-        console.log(books[2].tit);
-    } else { //Sorting according to date
-        books.sort(compareDates)
-        console.log(books[2].tit)
-    }
-}
-
-function comparePrice(a, b) {
-    return a.pric - b.pric;
-}
-
-function compareReviews(a, b) {
-    return b.reviews - a.reviews;
-}
-
-function compareDates(a, b) {
-    var d1 = new Date(a.dat);
-    var d2 = new Date(b.dat);
-    if (d1 < d2) {
-        return 1;
-    } else if (d2 > d1) {
-        return -1;
-    } else {
-        return 0;
-    }
 }
