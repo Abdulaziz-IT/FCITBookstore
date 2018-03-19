@@ -67,33 +67,33 @@ books[8] = new Book("Introduction to Java Programming and Data Structures, Compr
 var sorts = document.getElementById("sort");
 sorts.onchange = function () {
     if (this.value == "price") {
-        books.sort(
-            function (a, b) {
-                return a.pric - b.pric;
-            }
-        );
+        books.sort(comparePrice);
         console.log(books[2].tit);
     } else if (this.value == "review") {
-        books.sort(
-            function (a, b) {
-                return b.reviews - a.reviews;
-            }
-        );
+        books.sort(compareReviews);
         console.log(books[2].tit);
     } else { //Sorting according to date
-        books.sort(
-            function (a, b) {
-                var d1 = new Date(a.dat);
-                var d2 = new Date(b.dat);
-                if (d1 > d2) {
-                    return 1;
-                } else if (d2 > d1) {
-                    return -1;
-                } else {
-                    return 0;
-                }
-            }
-        )
-        consoloe.log(books[2].tit)
+        books.sort(compareDates)
+        console.log(books[2].tit)
+    }
+}
+
+function comparePrice(a, b) {
+    return a.pric - b.pric;
+}
+
+function compareReviews(a, b) {
+    return b.reviews - a.reviews;
+}
+
+function compareDates(a, b) {
+    var d1 = new Date(a.dat);
+    var d2 = new Date(b.dat);
+    if (d1 < d2) {
+        return 1;
+    } else if (d2 > d1) {
+        return -1;
+    } else {
+        return 0;
     }
 }
