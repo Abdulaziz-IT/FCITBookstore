@@ -25,7 +25,7 @@ body {
 }
 
 #listOfBooks > li {  
-  display: inline;
+  display: inline-block;
   padding: 0.5em;  
   margin: 0.5em;
   border: double;
