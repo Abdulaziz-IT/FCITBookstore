@@ -35,3 +35,9 @@ body {
   background-color: rgb(168, 142, 119);
   cursor: pointer;
 }
+
+#listOfBooks > li > a {
+  text-decoration: none;
+  color: rgb(158, 62, 14);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
