@@ -24,11 +24,20 @@
                 </ul>
             </nav>
         </header>
+        <div id="sorting">
+            <label> Sort:
+                <select name="sort" id="sort">
+                    <option value="price">Price</option>
+                    <option value="review" selected>Reviews</option>
+                    <option value="date">Publication Date</option>
+                </select>
+            </label>
+        </div>
         <div>
             <ul id="listOfBooks">
                 <li>
-                    <a href="https://www.amazon.com/JavaScript-JQuery-Interactive-Front-End-Development/dp/1118531647/">
-                        <img src="https://images-eu.ssl-images-amazon.com/images/I/41Z6LTD8QmL._AC_US218_.jpg" width="218" height="218">
+                    <a href="https://www.amazon.com/JavaScript-JQuery-Interactive-Front-End-Development/dp/1118531647/" target="_blank">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/I/41Z6LTD8QmL._AC_US218_.jpg" width="218" height="218" alt="book image">
                         <br>
                         <span class="title">JavaScript and JQuery: Interactive Front-End Web Development</span>
                         <br>
@@ -40,12 +49,13 @@
                         <br>
                         <span class="published">Data Published: June 30, 2014</span>
                         <br>
-                        <br>                        
                     </a>
                     <button onclick="alert('The book has been added to the cart')">Add to cart</button>
                 </li>
             </ul>
         </div>
+
+    </div>
 </body>
 
 </html>
