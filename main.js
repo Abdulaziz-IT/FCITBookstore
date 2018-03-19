@@ -1,1 +1,46 @@
-
+function Book(title, stars, image, review, pr, link, date) {
+    var allBooks = document.getElementById("listOfBooks");
+    var liElem = document.createElement("li");
+    allBooks.appendChild(liElem);
+    var aElem = document.createElement("a");
+    aElem.href = link;
+    aElem.target = "_blank";
+    liElem.appendChild(aElem);
+    var imgElem = document.createElement("img");
+    imgElem.src = image;
+    imgElem.width = "218";
+    imgElem.height = "218";
+    aElem.appendChild(imgElem);
+    aElem.appendChild(document.createElement("br"));
+    titleSpan = document.createElement("span");
+    titleSpan.className = "title";
+    titleSpan.appendChild(document.createTextNode(title));
+    aElem.appendChild(titleSpan);
+    aElem.appendChild(document.createElement("br"));
+    starsSpan = document.createElement("span");
+    starsSpan.className = "stars";
+    starsSpan.appendChild(document.createTextNode("Stars: " + stars + " / 5.0."));
+    aElem.appendChild(starsSpan);
+    aElem.appendChild(document.createElement("br"));
+    reviewSpan = document.createElement("span");
+    reviewSpan.className = "reviews";
+    reviewSpan.appendChild(document.createTextNode("Reviews: " + review + " Customer reviews"));
+    aElem.appendChild(reviewSpan);
+    aElem.appendChild(document.createElement("br"));
+    priceSpan = document.createElement("span");
+    priceSpan.className = "price";
+    priceSpan.appendChild(document.createTextNode("Price: " + pr + "$"));
+    aElem.appendChild(priceSpan);
+    aElem.appendChild(document.createElement("br"));
+    publishSpan = document.createElement("span");
+    publishSpan.className = "published";
+    publishSpan.appendChild(document.createTextNode("Date Published: " + date));
+    aElem.appendChild(publishSpan);
+    aElem.appendChild(document.createElement("br"));
+    aElem.appendChild(document.createElement("br"));
+    buttonElem = document.createElement("button");
+    buttonElem.onclick = function () { alert('The book has been added to the cart.'); };
+    buttonElem.appendChild(document.createTextNode("Add to cart"));
+    liElem.appendChild(buttonElem);
+    console.log(liElem);
+}
