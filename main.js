@@ -55,3 +55,32 @@ books[5] = Book("A Game of Thrones (A Song of Ice and Fire, Book 1)", 4.7, "http
 books[6] = Book("Elementary Statistics: A Step By Step Approach", 4.0, "https://images-na.ssl-images-amazon.com/images/I/51bS-0oEmSL._SX388_BO1,204,203,200_.jpg", 359, 122.56, "https://www.amazon.com/Elementary-Statistics-Step-Approach/dp/1259755339/", "February 1, 2017");
 books[7] = Book("Technical Communication Fundamentals", 3.8, "https://images-na.ssl-images-amazon.com/images/I/51Dd6K-yL8L._SX395_BO1,204,203,200_.jpg", 18, 100.00, "https://www.amazon.com/Technical-Communication-Fundamentals-William-Pfeiffer/dp/0132374579", "March 7, 2011");
 books[8] = Book("Introduction to Java Programming and Data Structures, Comprehensive Version (11th Edition)", 4.3, "https://images-na.ssl-images-amazon.com/images/I/51rFsKGbyML._SX395_BO1,204,203,200_.jpg", 13, 147.12, "https://www.amazon.com/Introduction-Programming-Structures-Comprehensive-Version/dp/0134670949/", "March 11, 2017");
+var sorts = document.getElementById("sort");
+sorts.onchange = function () {
+    if (this.value == "price") {
+        books.sort(
+            function (a, b) {
+                return a.pr - b.pr;
+            }
+        )
+        console.log(books.children);
+    } else if (this.value == "review") {
+        books.sort(
+            function (a, b) {
+                return b.review - a.review;
+            }
+        )
+        console.log(books.children);
+    } else { //Sorting according to date
+        books.sort(
+            function (a, b) {
+                var d1 = new Date(a.date);
+                var d2 = new Date(b.date);
+                return dates.compare(d2, d1);
+            }
+        )
+        console.log(books.children);
+    }
+
+
+}
