@@ -1,1 +1,17 @@
+#navList > li {
+  display: inline;
+  margin-right: 2em;
+  padding: 0.5em 1.5em;
+  font-size: 1.5em;
+  font-family: 'Times New Roman', Times, serif;  
+  border-style: solid;
+  border-color: rgb(108, 114, 29);
+  background-color: rgb(211, 224, 31);
+  cursor: pointer;  
+}
 
+#navList {
+  margin-bottom: 10em;
+  background-color: rgb(129, 65, 23);
+  
+}
