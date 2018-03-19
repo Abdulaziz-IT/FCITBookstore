@@ -60,3 +60,7 @@ button {
 .title {
   font-weight: bold;
 }
+
+#sorting {
+  text-align: center;
+}
