@@ -44,3 +44,14 @@ body {
   color: rgb(158, 62, 14);
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+img {
+  /*float: left;*/
+  margin-right: 0.2em;
+}
+button {
+  float: right;
+  background-color: rgb(168, 160, 41);
+  padding: 0.1em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
