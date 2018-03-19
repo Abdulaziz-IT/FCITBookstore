@@ -44,3 +44,6 @@ function Book(title, stars, image, review, pr, link, date) {
     liElem.appendChild(buttonElem);
     console.log(liElem);
 }
+
+var books = new Array();
+books[0] = Book("Web Design with HTML, CSS, JavaScript and jQuery Set", 4.7, "https://images-na.ssl-images-amazon.com/images/I/41T53nRtyoL._SX435_BO1,204,203,200_.jpg", 433, 28.38, "https://www.amazon.com/Web-Design-HTML-JavaScript-jQuery/dp/1118907442/", "July 8, 2014");
