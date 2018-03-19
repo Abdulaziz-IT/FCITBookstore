@@ -64,30 +64,36 @@ books[5] = new Book("A Game of Thrones (A Song of Ice and Fire, Book 1)", 4.7, "
 books[6] = new Book("Elementary Statistics: A Step By Step Approach", 4.0, "https://images-na.ssl-images-amazon.com/images/I/51bS-0oEmSL._SX388_BO1,204,203,200_.jpg", 359, 122.56, "https://www.amazon.com/Elementary-Statistics-Step-Approach/dp/1259755339/", "February 1, 2017");
 books[7] = new Book("Technical Communication Fundamentals", 3.8, "https://images-na.ssl-images-amazon.com/images/I/51Dd6K-yL8L._SX395_BO1,204,203,200_.jpg", 18, 100.00, "https://www.amazon.com/Technical-Communication-Fundamentals-William-Pfeiffer/dp/0132374579", "March 7, 2011");
 books[8] = new Book("Introduction to Java Programming and Data Structures, Comprehensive Version (11th Edition)", 4.3, "https://images-na.ssl-images-amazon.com/images/I/51rFsKGbyML._SX395_BO1,204,203,200_.jpg", 13, 147.12, "https://www.amazon.com/Introduction-Programming-Structures-Comprehensive-Version/dp/0134670949/", "March 11, 2017");
-
 var sorts = document.getElementById("sort");
 sorts.onchange = function () {
     if (this.value == "price") {
-        books.sort(comparePrice(a, b));
-        console.log(books.children);
+        books.sort(
+            function (a, b) {
+                return a.pric - b.pric;
+            }
+        );
+        console.log(books[2].tit);
     } else if (this.value == "review") {
         books.sort(
             function (a, b) {
                 return b.reviews - a.reviews;
             }
-        )
-        console.log(books.children);
+        );
+        console.log(books[2].tit);
     } else { //Sorting according to date
         books.sort(
             function (a, b) {
-                var d1 = new Date(a.date);
-                var d2 = new Date(b.date);                
-                return dates.compare(d2, d1);
+                var d1 = new Date(a.dat);
+                var d2 = new Date(b.dat);
+                if (d1 > d2) {
+                    return 1;
+                } else if (d2 > d1) {
+                    return -1;
+                } else {
+                    return 0;
+                }
             }
-        )        
-    }
-
-    function comparePrice(a, b) {
-        a.pric - b.pric;
+        )
+        consoloe.log(books[2].tit)
     }
 }
