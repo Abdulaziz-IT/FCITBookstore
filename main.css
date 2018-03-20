@@ -1,9 +1,13 @@
+body {
+  background-color: peachpuff;
+}
+
 #navList > li {
   display: inline;
   margin-right: 2em;
   padding: 0.5em 1.5em;
   font-size: 1.5em;
-  font-family: 'Times New Roman', Times, serif;  
+  font-family: 'Times New Roman', Times, serif;
   border-style: solid;
   border-color: rgb(108, 114, 29);
   background-color: rgb(211, 224, 31);
@@ -20,40 +24,34 @@
   background-color: rgb(141, 151, 47);
 }
 
-body {
-  background-color: peachpuff;
+#grid-container {
+  margin-top: 1.5em;
+  display: grid;
+  grid-template-columns: 20em 20em 20em 20em;
+  height: 90em;
+  align-content: space-around;
+  justify-content: space-around;
 }
 
-#listOfBooks > li {  
-  display: inline-block;
+#grid-container > div {  
   padding: 0.5em;  
-  margin: 0.5em;
-  width: 19em;
-  height: 25em;
   border: double;
-  word-wrap: break-word;  
-  overflow: auto;
 }
 
-#listOfBooks > li:hover {  
+#grid-container > div:hover {  
   background-color: rgb(168, 142, 119);
   cursor: pointer;
 }
 
-#listOfBooks > li > a {
+#grid-container > div > a {
   display: block;
   text-decoration: none;
   color: rgb(158, 62, 14);
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-img {
-  margin-right: 0.2em;
-}
 button {
-  float: right;
   background-color: rgb(168, 160, 41);
-  padding: 0.1em;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 

@@ -8,11 +8,11 @@ function Book(title, stars, image, review, pr, link, date) {
     this.lin = link;
     this.dat = date;
 
-    //Creating the list
-    createList(this.tit, this.star, this.imageLink, this.reviews, this.pric, this.lin, this.dat);
+    //Creating the grids
+    createGrids(this.tit, this.star, this.imageLink, this.reviews, this.pric, this.lin, this.dat);
 }
 
-var books = new Array();
+var books = [];
 books.push(new Book("Web Design with HTML, CSS, JavaScript and jQuery Set", 4.7, "https://images-na.ssl-images-amazon.com/images/I/41T53nRtyoL._SX435_BO1,204,203,200_.jpg", 433, 28.38, "https://www.amazon.com/Web-Design-HTML-JavaScript-jQuery/dp/1118907442/", "July 8, 2014"));
 books.push(new Book("A Smarter Way to Learn JavaScript. The new tech-assisted approach that requires half the effort", 4.7, "https://images-na.ssl-images-amazon.com/images/I/512KPmZIG7L._SX348_BO1,204,203,200_.jpg", 1497, 15.78, "https://www.amazon.com/Smarter-JavaScript-tech-assisted-approach-requires/dp/1497408180/", "March 20, 2014"));
 books.push(new Book("Calculus: Early Transcendentals", 3.9, "https://images-na.ssl-images-amazon.com/images/I/51jitgi3EaL._SX423_BO1,204,203,200_.jpg", 101, 178.46, "https://www.amazon.com/Calculus-Early-Transcendentals-James-Stewart/dp/1285741552", "February 4, 2015"));
@@ -63,22 +63,22 @@ function compareDates(a, b) {
 }
 
 function updateDOM() {
-    var allBooks = document.getElementById("listOfBooks");
+    var allBooks = document.getElementById("grid-container");
     allBooks.innerHTML = ""; //Cheating :D
     var i;
     for (i = 0; i < books.length; i++) {
-        createList(books[i].tit, books[i].star, books[i].imageLink, books[i].reviews, books[i].pric, books[i].lin, books[i].dat);
+        createGrids(books[i].tit, books[i].star, books[i].imageLink, books[i].reviews, books[i].pric, books[i].lin, books[i].dat);
     }
 }
 
-function createList(title, stars, image, review, pr, link, date) {
-    var allBooks = document.getElementById("listOfBooks");
-    var liElem = document.createElement("li");
-    allBooks.appendChild(liElem);
+function createGrids(title, stars, image, review, pr, link, date) {
+    var allBooks = document.getElementById("grid-container");
+    var divElem = document.createElement("div");
+    allBooks.appendChild(divElem);
     var aElem = document.createElement("a");
     aElem.href = link;
     aElem.target = "_blank";
-    liElem.appendChild(aElem);
+    divElem.appendChild(aElem);
     var imgElem = document.createElement("img");
     imgElem.src = image;
     imgElem.width = "218";
@@ -114,5 +114,5 @@ function createList(title, stars, image, review, pr, link, date) {
     buttonElem = document.createElement("button");
     buttonElem.onclick = function () { alert('The book has been added to the cart.'); };
     buttonElem.appendChild(document.createTextNode("Add to cart"));
-    liElem.appendChild(buttonElem);
+    divElem.appendChild(buttonElem);
 }
