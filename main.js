@@ -111,8 +111,4 @@ function createGrids(title, stars, image, review, pr, link, date) {
     aElem.appendChild(publishSpan);
     aElem.appendChild(document.createElement("br"));
     aElem.appendChild(document.createElement("br"));
-    buttonElem = document.createElement("button");
-    buttonElem.onclick = function () { alert('The book has been added to the cart.'); };
-    buttonElem.appendChild(document.createTextNode("Add to cart"));
-    divElem.appendChild(buttonElem);
 }
