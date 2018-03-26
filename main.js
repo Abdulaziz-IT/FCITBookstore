@@ -43,6 +43,7 @@ run("curse");
 run("12 Rules for Life");
 run("Little Blue Truck");
 run("Learning Python");
+run("A wrinkle in time");
 
 var sorts = document.getElementById("sort");
 sorts.onchange = function () {
