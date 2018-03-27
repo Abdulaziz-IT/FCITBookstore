@@ -39,7 +39,6 @@ run("How to Lie with Statistics");
 run("Types and Programming Languages");
 run("Thinking in Java");
 run("Winter in Madrid");
-run("curse");
 run("12 Rules for Life");
 run("Little Blue Truck");
 run("Learning Python");
