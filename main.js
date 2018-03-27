@@ -33,7 +33,6 @@ function Book(title, author, stars, image, reviews, page, link, date) {
     createGrids(this.title, this.author, this.stars, this.image, this.reviews, this.page, this.link, this.date);
 }
 var books = [];
-run("Harry Potter and the Prisoner of Azkaban");
 run("Game of thrones a song of ice");
 run("How to Lie with Statistics");
 run("Types and Programming Languages");
