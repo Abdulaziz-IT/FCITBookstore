@@ -70,15 +70,9 @@ function compareStars(a, b) {
 }
 
 function compareDates(a, b) {
-    var d1 = new Date(a.date);
-    var d2 = new Date(b.date);
-    if (d1 < d2) {
-        return 1;
-    } else if (d2 > d1) {
-        return -1;
-    } else {
-        return 0;
-    }
+    var d1 = new Date(a.date);    
+    var d2 = new Date(b.date);    
+    return d2 - d1;
 }
 
 function updateDOM() {
